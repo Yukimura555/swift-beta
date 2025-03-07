@@ -141,6 +141,7 @@ export default function Home() {
         <title>Swift Hotel - Kapalı Beta</title>
         <meta name="description" content="Swift Hotel kapalı beta" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" href="/assets/favicon.ico" />
       </Head>
 
       <div className="maintenance-page">
