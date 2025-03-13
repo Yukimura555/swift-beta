@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import rotw1Background from '../assets/rotw1-base64'; 
 
 const features = [
   {
@@ -147,14 +148,14 @@ export default function Home() {
       <div className="maintenance-page">
         <div className="hero-section">
           <Image
-            src="/swift-beta/assets/rotw1.png"
+            src={rotw1Background}
             alt="background"
             className="hero-background"
             fill
             priority
           />
           <div className="hero-content">
-            <h1>Swift Hotel şu anda kapalı betada</h1>
+            <h1>Swift Hotel şu anda kapalı betada.</h1>
             <div className="invite-section">
               <h2>Kapalı beta davetiye kodunuzu yazın.</h2>
               <form onSubmit={handleSubmit}>
