@@ -561,7 +561,7 @@ h2 {
 }
 
 .social-nav a:hover::after,
-.social-nav button::hover::after {
+.social-nav button:hover::after {
   width: 100%;
 }
 
