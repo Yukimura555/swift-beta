@@ -7,37 +7,37 @@ const features = [
   {
     title: "Yeni arkadaşlar edin, insanlarla tanış!",
     description: "Sürekli büyüyen ve sıcakkanlı muhteşem insanlarla dolu topluluğumuzun değerli bir parçası ol!",
-    image: "/assets/arkadas.png",
+    image: "/swift-beta/assets/arkadas.png",
     alt: "Arkadaşlık görseli"
   },
   {
     title: "Yüzlerce yeni kıyafetle kendi tarzını oluştur!",
     description: "Karakterini dilediğin gibi giydir, tarzınla ve zevklerinle gözleri kamaştır, fark edil!",
-    image: "/assets/kiyafet.png",
+    image: "/swift-beta/assets/kiyafet.png",
     alt: "Kıyafet görseli"
   },
   {
     title: "Etkinlik ve yarışmalara katıl!",
     description: "Swift'in yenilikçi organizasyonlarına ve oyunlarımıza katılarak ödüller kazan!",
-    image: "/assets/oduller.png",
+    image: "/swift-beta/assets/oduller.png",
     alt: "Ödüller görseli"
   },
   {
     title: "Detaylı bir takas sistemi!",
     description: "Özenle planladığımız ekonomimizde dilediğin gibi takas yap! En zengin sen ol!",
-    image: "/assets/takas.png",
+    image: "/swift-beta/assets/takas.png",
     alt: "Takas görseli"
   },
   {
     title: "Gruplara ve aktivitelere katıl!",
     description: "Kendini ait hissettiğin ortamlara dahil ol! Çeşitli gruplara ve topluluklara katılarak yeni yüzler tanı!",
-    image: "/assets/grup.png",
+    image: "/swift-beta/assets/grup.png",
     alt: "Grup görseli"
   },
   {
     title: "Sıkılmak burada yasak!",
     description: "Oyundaki tonla etkinliği ve mini oyunları keşfet! Seni bekleyen o kadar çok şey var ki!",
-    image: "/assets/yarisma.png",
+    image: "/swift-beta/assets/yarisma.png",
     alt: "Yarışma görseli"
   }
 ];
@@ -141,13 +141,13 @@ export default function Home() {
         <title>Swift Hotel - Kapalı Beta</title>
         <meta name="description" content="Swift Hotel kapalı beta" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="shortcut icon" href="/assets/favicon.ico" />
+        <link rel="shortcut icon" href="/swift-beta/assets/favicon.ico" />
       </Head>
 
       <div className="maintenance-page">
         <div className="hero-section">
           <Image
-            src="/assets/rotw1.png"
+            src="/swift-beta/assets/rotw1.png"
             alt="background"
             className="hero-background"
             fill
@@ -215,7 +215,7 @@ export default function Home() {
 
         <footer className="footer">
           <div className="footer-logo">
-            <Image src="/assets/swiftlogo.png" alt="Swift Hotel Logo" width={150} height={150} />
+            <Image src="/swift-beta/assets/swiftlogo.png" alt="Swift Hotel Logo" width={150} height={150} />
           </div>
           <div className="copyright">
             <div className="copyright-year">© 2025 Swift</div>
