@@ -137,24 +137,33 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const preventRightClick = (e) => {
+    const backgroundImage = document.querySelector('.hero-background');
+    
+    const preventImageActions = (e) => {
       e.preventDefault();
       return false;
     };
 
-    const preventDevTools = (e) => {
-      if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
-        e.preventDefault();
-        return false;
-      }
+    const preventDrag = (e) => {
+      e.preventDefault();
     };
 
-    document.addEventListener('contextmenu', preventRightClick);
-    document.addEventListener('keydown', preventDevTools);
+    if (backgroundImage) {
+      backgroundImage.addEventListener('contextmenu', preventImageActions);
+      backgroundImage.addEventListener('dragstart', preventDrag);
+      backgroundImage.addEventListener('mousedown', preventDrag);
+      backgroundImage.addEventListener('touchstart', preventDrag, { passive: false });
+      backgroundImage.addEventListener('touchmove', preventDrag, { passive: false });
+    }
 
     return () => {
-      document.removeEventListener('contextmenu', preventRightClick);
-      document.removeEventListener('keydown', preventDevTools);
+      if (backgroundImage) {
+        backgroundImage.removeEventListener('contextmenu', preventImageActions);
+        backgroundImage.removeEventListener('dragstart', preventDrag);
+        backgroundImage.removeEventListener('mousedown', preventDrag);
+        backgroundImage.removeEventListener('touchstart', preventDrag);
+        backgroundImage.removeEventListener('touchmove', preventDrag);
+      }
     };
   }, []);
 

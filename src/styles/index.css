@@ -73,7 +73,7 @@ button:focus-visible {
 }
 
 .hero-background {
-  pointer-events: none !important;
+  pointer-events: auto !important;
   user-select: none !important;
   -webkit-user-drag: none !important;
   -webkit-touch-callout: none !important;
@@ -85,6 +85,8 @@ button:focus-visible {
   object-fit: cover !important;
   opacity: 0.99;
   transform: scale(1.01);
+  touch-action: none !important;
+  pointer-events: none !important;
 }
 
 .hero-background::after {
@@ -95,4 +97,11 @@ button:focus-visible {
   right: 0;
   bottom: 0;
   pointer-events: none;
+}
+
+.hero-background img {
+  pointer-events: none !important;
+  touch-action: none !important;
+  user-drag: none !important;
+  -webkit-user-drag: none !important;
 }
