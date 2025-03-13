@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  basePath: '/swift-beta',
+  output: 'standalone',
   images: {
     unoptimized: true,
   },

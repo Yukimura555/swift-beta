@@ -8,37 +8,37 @@ const features = [
   {
     title: "Yeni arkadaşlar edin, insanlarla tanış!",
     description: "Sürekli büyüyen ve sıcakkanlı muhteşem insanlarla dolu topluluğumuzun değerli bir parçası ol!",
-    image: "/swift-beta/assets/arkadas.png",
+    image: "/assets/arkadas.png",
     alt: "Arkadaşlık görseli"
   },
   {
     title: "Yüzlerce yeni kıyafetle kendi tarzını oluştur!",
     description: "Karakterini dilediğin gibi giydir, tarzınla ve zevklerinle gözleri kamaştır, fark edil!",
-    image: "/swift-beta/assets/kiyafet.png",
+    image: "/assets/kiyafet.png",
     alt: "Kıyafet görseli"
   },
   {
     title: "Etkinlik ve yarışmalara katıl!",
     description: "Swift'in yenilikçi organizasyonlarına ve oyunlarımıza katılarak ödüller kazan!",
-    image: "/swift-beta/assets/oduller.png",
+    image: "/assets/oduller.png",
     alt: "Ödüller görseli"
   },
   {
     title: "Detaylı bir takas sistemi!",
     description: "Özenle planladığımız ekonomimizde dilediğin gibi takas yap! En zengin sen ol!",
-    image: "/swift-beta/assets/takas.png",
+    image: "/assets/takas.png",
     alt: "Takas görseli"
   },
   {
     title: "Gruplara ve aktivitelere katıl!",
     description: "Kendini ait hissettiğin ortamlara dahil ol! Çeşitli gruplara ve topluluklara katılarak yeni yüzler tanı!",
-    image: "/swift-beta/assets/grup.png",
+    image: "/assets/grup.png",
     alt: "Grup görseli"
   },
   {
     title: "Sıkılmak burada yasak!",
     description: "Oyundaki tonla etkinliği ve mini oyunları keşfet! Seni bekleyen o kadar çok şey var ki!",
-    image: "/swift-beta/assets/yarisma.png",
+    image: "/assets/yarisma.png",
     alt: "Yarışma görseli"
   }
 ];
@@ -103,6 +103,7 @@ export default function Home() {
   const [showInvalidCode, setShowInvalidCode] = useState(false);
   const [shake, setShake] = useState(false);
   const scrollY = useScrollAnimation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCodeChange = (e) => {
     let value = e.target.value.toUpperCase();
@@ -173,7 +174,7 @@ export default function Home() {
         <title>Swift Hotel - Kapalı Beta</title>
         <meta name="description" content="Swift Hotel kapalı beta" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="shortcut icon" href="/swift-beta/assets/favicon.ico" />
+        <link rel="shortcut icon" href="/assets/favicon.ico" />
       </Head>
 
       <div className="maintenance-page">
@@ -212,6 +213,13 @@ export default function Home() {
                   </AnimatePresence>
                 </div>
               </form>
+              <div className="social-nav">
+                <a href="https://www.tiktok.com/@swift.hoteltr" target="_blank" rel="noopener noreferrer">TikTok</a>
+                <span className="divider">|</span>
+                <a href="https://instagram.com/swift.hoteltr" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <span className="divider">|</span>
+                <button onClick={() => setIsModalOpen(true)}>SSS</button>
+              </div>
             </div>
           </div>
           <AnimatePresence>
@@ -247,17 +255,74 @@ export default function Home() {
 
         <footer className="footer">
           <div className="footer-logo">
-            <Image src="/swift-beta/assets/swiftlogo.png" alt="Swift Hotel Logo" width={150} height={150} />
+            <Image src="/assets/swiftlogo.png" alt="Swift Hotel Logo" width={150} height={150} />
           </div>
           <div className="copyright">
             <div className="copyright-year">© 2025 Swift</div>
             <div className="copyright-text">Swift Hotel akademik bir projedir. Tüm satın alımlar bağış olarak kabul edilir ve sunucumuza fon sağlar.</div>
           </div>
           <div className="social-links">
-            <a href="https://tiktok.com/swift.hoteltr" target="_blank" rel="noopener noreferrer">TikTok</a>
+            <a href="https://www.tiktok.com/@swift.hoteltr" target="_blank" rel="noopener noreferrer">TikTok</a>
             <a href="https://instagram.com/swift.hoteltr" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
         </footer>
+
+        <AnimatePresence>
+          {isModalOpen && (
+            <>
+              <motion.div 
+                className="modal-backdrop"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                onClick={() => setIsModalOpen(false)}
+              />
+              <motion.div 
+                className="modal"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ 
+                  duration: 0.3,
+                  ease: "easeInOut"
+                }}
+              >
+                <button className="close-button" onClick={() => setIsModalOpen(false)}>×</button>
+                <h2 className="gradient-text">Sıkça Sorulan Sorular</h2>
+                <div className="faq-content">
+                  <div className="faq-item">
+                    <h3><span className="faq-number">1</span> Kapalı betaya nasıl katılabilirim?</h3>
+                    <p>Kapalı betada tam kapasitedeyiz ve daha fazla kullanıcı kabul etmiyoruz. Çok yakında açık betaya geçeceğiz ve oyunu isteyen herkesin erişimine sunacağız.</p>
+                  </div>
+                  <div className="faq-item">
+                    <h3><span className="faq-number">2</span> Discord adresiniz var mı?</h3>
+                    <p>Discord adresi kullanmıyoruz, hem Türkiye'de yasak olduğu için hem de planımızda oyun ve sosyal ağ adreslerimiz dışında bir platformun bulunmamasını istediğimiz için böyle bir yola başvurduk. Tüm duyurular sosyal medya hesaplarımızdan yapılmaktadır.</p>
+                  </div>
+                  <div className="faq-item">
+                    <h3><span className="faq-number">3</span> Swift nedir?</h3>
+                    <p>Swift, web tarayıcısı üzerinden tüm cihazlarda ücretsiz oynanabilen kendi odalarınızı inşa edip yeni arkadaşlar ve unutulmaz anılar edinebileceğiniz bir sanal dünya ağıdır.</p>
+                  </div>
+                  <div className="faq-item">
+                    <h3><span className="faq-number">4</span> Açık betaya ne zaman açılacaksınız?</h3>
+                    <p>Şu an için böyle bir tarih vermemiz mümkün değil, kısa bir süre içerisinde kapalı beta sürecimizi sonlandırıp sizlerle buluşmak istiyoruz. Süreçle ilgili bilgilendirme mesajları sosyal medya hesaplarımızdan yapılan duyurularla iletilecektir.</p>
+                  </div>
+                  <div className="faq-item">
+                    <h3><span className="faq-number">5</span> Telefondan oynayabilir miyim? / Nereden oynayabilirim?</h3>
+                    <p>Oyunumuz web tabanlı olduğu için ücretsiz olarak internete bağlanabilen tüm cihazlarınızdan oynayabileceksiniz.</p>
+                  </div>
+                  <div className="faq-item">
+                    <h3><span className="faq-number">6</span> Neden Swift?</h3>
+                    <p>Mevcut yönetimden memnun olmadığımız ve eskiyi özlediğimiz için böyle bir yola başvurduk. Sosyal medyadan oldukça destekleyici yorumlar alıyoruz. Orijinalin aksine hotel yönetim anlayışını ve içeriğini bir nebze farklılaştırarak eski keyfi, atmosferi yeniden yakalamaya çalışıyoruz. Oyunumuz içerisindeki tüm eşyalar ve kıyafetler kullanıcılarımın erişimine ücretsiz olarak açık olacak. Projemizde yürüttüğümüz politikaların kullanıcıların zevkini temel alarak oluşturulacağından emin olabilirsiniz.</p>
+                  </div>
+                  <div className="faq-item last">
+                    <p>Eğer sormak istediğiniz daha fazla soru varsa sosyal medya hesaplarımız üzerinden iletişime geçerek personel takımımıza istediğiniz soruları sorabilirsiniz.</p>
+                  </div>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );
