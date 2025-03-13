@@ -136,6 +136,28 @@ export default function Home() {
     setTimeout(() => setShowInvalidCode(false), 5000);
   };
 
+  useEffect(() => {
+    const preventRightClick = (e) => {
+      e.preventDefault();
+      return false;
+    };
+
+    const preventDevTools = (e) => {
+      if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+        e.preventDefault();
+        return false;
+      }
+    };
+
+    document.addEventListener('contextmenu', preventRightClick);
+    document.addEventListener('keydown', preventDevTools);
+
+    return () => {
+      document.removeEventListener('contextmenu', preventRightClick);
+      document.removeEventListener('keydown', preventDevTools);
+    };
+  }, []);
+
   return (
     <>
       <Head>
